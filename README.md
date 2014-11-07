@@ -11,7 +11,7 @@ A lot of the coding conventions you see here are borrowed from [John Papa's Angu
 1. [Prefix Angular components with the app name](#prefix-angular-components-with-the-app-name)
 1. [Controllers](#controllers)
 1. [Code Formatting](#code-formatting)
-1. [Directory Structure](#directory-structure)
+1. [Directory & File Structure](#directory--file-structure)
 
 
 ###Single Responsiblity
