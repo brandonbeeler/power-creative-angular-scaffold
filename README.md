@@ -8,6 +8,8 @@ A lot of the coding conventions you see here are borrowed from [John Papa's Angu
 1. [Single Responsiblity](#single-responsiblity)
 1. [IIFE & 'use strict'](#iife--use-strict)
 1. [Prefix Angular components with the app name](#prefix-angular-components-with-the-app-name)
+1. [Controllers](#controllers)
+1. [Directory Structure][#directory-structure]
 
 ###Single Responsiblity
 Each file should only contain one angular component (controller, directive, service, etc.). We want our files to be very easy to search out and identify.
@@ -62,6 +64,44 @@ Place all binded data at the top of the controller to make it easier and quicker
 We will avoid using anonymous functions for binded functions, instead deferring to passing in a named function which will be declared later in the file below the binded functions. This helps us keep our binded members at the top of the controller. Also we will use function declarations rather than expressions. A function declaration's scope is hoisted meaning you can use a function before it is declared in the order of code. Also function declarations will show a very visible syntactical difference from the binded members above.
 ####Defer Controller Logic to Services
 Any data should be placed in Service to avoid repetition. Controller's should not manipulate data only fetch & assign to a binded member.
+####No DOM Manipulation
+Controllers shouldn't be 100% DOM independent. All DOM Manipulation should happen in a directive.
+####Controller Activation Promises
+Resolve start-up logic for a controller in an activate function. Placing start-up logic in a consistent place in the controller makes it easier to locate, more consistent to test, and helps avoid spreading out the activation logic across the controller. Will be used particulary when fetching data from a service which will almost always be the case.
+####Sample Controller
+```
+(function() { 'use strict'; // wrap in IIFE & 'use strict' clause'
+
+  angular.module('lnx.sampleController', []) // prefix module name
+    .controller('sample', sample);
+
+  function sample($scope, dataService) {
+    // Bindable properties
+    $scope.firstName = 'John';
+    $scope.lastName = 'Doe';
+    $scope.people = [];
+    $scope.sayHello = sayHello();
+    
+    // Resolve startup logic
+    activate();
+    
+    // Defer Function Declarations
+    function activate() {
+        return dataService.get().then(function(data) {
+            $scope.people = data;
+        }
+    }
+    
+    function sayHello()  {f
+      return 'Hello ' + getFullName();
+    }
+
+    function getFullName() {
+      return $scope.firstName + " " + $scope.lastName;
+    }
+  }
+})();
+```
 
 
 ##Directory Structure
