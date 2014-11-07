@@ -11,6 +11,7 @@ A lot of the coding conventions you see here are borrowed from [John Papa's Angu
 1. [Prefix Angular components with the app name](#prefix-angular-components-with-the-app-name)
 1. [Controllers](#controllers)
 1. [Directory Structure](#directory-structure)
+1. [Code Formatting](#code-formatting)
 
 
 ###Single Responsiblity
@@ -114,7 +115,51 @@ Resolve start-up logic for a controller in an activate function. Placing start-u
   }
 })();
 ```
+##Code Formatting
+Tab size should be set to 2 spaces. Insert a space before and after paren in if, for, while, switch & catch statements. Keep Opening curly brace on same line for these statements as well. Format code to use [@ngDoc](https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation) which is a form of [@jsDoc](https://github.com/johnpapa/angularjs-styleguide/blob/master/README.md#jsdoc). Below is a great example from the sample.controller.js file in the repo.
+```
+/**
+ * Sample Controller
+ * @memberOf Controllers
+ */
+(function() { 'use strict';
 
+  angular.module('lnx.sampleController', [])
+    .controller('sample', sample);
+
+  /**
+   * @namespace Sample
+   * @desc example controller
+   * @memberOf Controllers
+   */
+  function sample($scope) {
+    $scope.firstName = 'John';
+    $scope.lastName = 'Doe';
+    $scope.fullName = getFullName();
+    $scope.sayHello = sayHello();
+
+    /**
+     * @name sayHello
+     * @desc Say "Hello User's Full Name"
+     * @returns {String}
+     * @memberOf Controllers.Sample
+     */
+    function sayHello()  {
+      return 'Hello ' + getFullName();
+    }
+
+    /**
+     * @name getFullName
+     * @desc Get's the full name from the scope's first & last name
+     * @returns {String}
+     * @memberOf Controllers.Sample
+     */
+    function getFullName() {
+      return $scope.firstName + " " + $scope.lastName;
+    }
+  }
+})();
+```
 
 ##Directory Structure
 Here is the directory structure of the app
