@@ -115,6 +115,41 @@ Resolve start-up logic for a controller in an activate function. Placing start-u
   }
 })();
 ```
+
+
+##Directory & File Structure
+Here is the directory structure of the app:
+```
+dist/
+  .htaccess
+  index.html
+  lib/
+    css/
+    fonts/
+    img/
+    js/
+      angular.js
+      build.js
+      build.min.js
+src/
+  app/
+    app.module.js
+    app.routes.js
+    app.controller.js
+    sampleFeature/
+        sample.controller.js
+        sample.directive.js
+        sample.view.html
+    (*Directory per feature)
+  lib/
+    sass/
+tests/
+Gruntfile.js
+package.json
+  
+```
+###File Components
+For every Angular component include the component type before the file extension. This will make it easier to quickly identify the component type while browsing the app structure.
 ##Code Formatting
 Tab size should be set to 2 spaces. Insert a space before and after paren in if, for, while, switch & catch statements. Keep Opening curly brace on same line for these statements as well. Format code to use [@ngDoc](https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation) which is a form of [@jsDoc](https://github.com/johnpapa/angularjs-styleguide/blob/master/README.md#jsdoc). Below is a great example from the sample.controller.js file in the repo.
 ```
@@ -160,31 +195,8 @@ Tab size should be set to 2 spaces. Insert a space before and after paren in if,
   }
 })();
 ```
+###Directory Per Feature
+Rather than structuring the app directory to contain a sub directory per component type (directive, services, controller) we make a sub directory per feature (AKA resource). Example we may have a directory for products or faq's for the lennox.com redesign. This will prevent these directories from containing too many files making them hard to traverse. As a whole we should try to keep directories from containing more than 7 files. If you start to notice a directory is getting large consider splitting it into sub directories.
 
-##Directory Structure
-Here is the directory structure of the app
-```
-dist/
-  .htaccess
-  index.html
-  lib/
-    css/
-    fonts/
-    img/
-    js/
-      angular.js
-      build.js
-      build.min.js
-src/
-  app/
-    app.module.js
-    app.routes.js
-    app.controller.js
-    
-  lib/
-    sass/
-tests/
-Gruntfile.js
-package.json
-  
-```
+## This is a living document
+This is a living breathing document. We can adapt this as we see fit. If something makes more sense add it to the document but for the sake of maintainability lets stay consistent. 
