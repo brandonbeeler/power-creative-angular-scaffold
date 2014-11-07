@@ -5,11 +5,11 @@ A lot of the coding conventions you see here are borrowed from [John Papa's Angu
 
 ##Table of Contents
 
-1. [Single Responsiblity](#Single Responsibility)
-1. [IIFE & 'use strict'](#IIFE & 'use strict')
-1. [Prefix Angular components with the app name](#Prefix Angular components with the app name)
+1. [Single Responsiblity](#1)
+1. [IIFE & 'use strict'](#2)
+1. [Prefix Angular components with the app name](#3)
 
-###Single Responsiblity
+###Single Responsiblity[1]
 Each file should only contain one angular component (controller, directive, service, etc.). We want our files to be very easy to search out and identify.
 
 ####Do This!
@@ -36,7 +36,7 @@ angular.module('app.sampleController', [])
   }
 ```
 
-###IIFE & 'use strict'
+###IIFE & 'use strict'[2]
 Wrap AngularJS components in an Immediately Invoked Function Expression (IIFE) to avoid leaking global JS variables. Also be sure to add the 'use strict' clause to every component. [If you're interested in learning more about strict mode view this article.](http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/)
 
 ```
@@ -45,7 +45,7 @@ Wrap AngularJS components in an Immediately Invoked Function Expression (IIFE) t
     .controller('sample', sample);
 })();
 ```
-###Prefix Angular components with the app name
+###Prefix Angular components with the app name[3]
 This avoids naming collisions & makes it easier to identify custom written components versus third party components. You can find the name of the app in the app.module.js located in the src/app/ directory.
 ```
 angular.module('lnx.sampleController', []) // notice the prefix lnx which is the name of this app
