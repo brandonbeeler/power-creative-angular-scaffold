@@ -199,4 +199,4 @@ Tab size should be set to 2 spaces. Insert a space before and after paren in if,
 Rather than structuring the app directory to contain a sub directory per component type (directive, services, controller) we make a sub directory per feature (AKA resource). Example we may have a directory for products or faq's for the lennox.com redesign. This will prevent these directories from containing too many files making them hard to traverse. As a whole we should try to keep directories from containing more than 7 files. If you start to notice a directory is getting large consider splitting it into sub directories.
 
 ## This is a living document
-This is a living breathing document. We can adapt this as we see fit. If something makes more sense add it to the document but for the sake of maintainability lets stay consistent. 
+This is a living breathing document. We can adapt this as we see fit. If something makes more sense add it to the document but for the sake of maintainability lets stay consistent. You will need to be a contributor first though to edit this doc.
