@@ -3,6 +3,7 @@
 ##Coding Conventions & Style Guide
 A lot of the coding conventions you see here are borrowed from [John Papa's Angular Style Guide](https://github.com/johnpapa/angularjs-styleguide). It's great stuff if you have the time to read. Basically I have used that as a base for this and modified / simplified from there.
 
+
 ##Table of Contents
 
 1. [Single Responsiblity](#single-responsiblity)
@@ -11,8 +12,10 @@ A lot of the coding conventions you see here are borrowed from [John Papa's Angu
 1. [Controllers](#controllers)
 1. [Directory Structure](#directory-structure)
 
+
 ###Single Responsiblity
 Each file should only contain one angular component (controller, directive, service, etc.). We want our files to be very easy to search out and identify.
+
 
 ####Do This!
 ```
@@ -23,6 +26,7 @@ angular.module('app.sampleController', [])
     $scope.name = 'John Doe';
   }
 ```
+
 ####Don't Do This!
 ```
 angular.module('app.sampleController', [])
@@ -47,6 +51,7 @@ Wrap AngularJS components in an Immediately Invoked Function Expression (IIFE) t
     .controller('sample', sample);
 })();
 ```
+
 ###Prefix Angular components with the app name
 This avoids naming collisions & makes it easier to identify custom written components versus third party components. You can find the name of the app in the app.module.js located in the src/app/ directory.
 ```
@@ -56,18 +61,25 @@ angular.module('lnx.sampleController', []) // notice the prefix lnx which is the
 
 ###Controllers
 A sample controller code example will be shown at the bottom
+
 ####$scope
 The $scope variable is angular's viewModel (bridge between view & model). This is the data that is binded two ways between the view & controller and what makes Angular awesome. Our practice will be to bind all data on the $scope variable. There are other practices that mask this connection. $scope will be passed in as a dependency to your controller and all data will be binded as a property to that object.
+
 ####Bindable Members Up Top
 Place all binded data at the top of the controller to make it easier and quicker to identify. This is all the assignements to the $scope object.
+
 ####Function Declarations to hide Implementation Details
 We will avoid using anonymous functions for binded functions, instead deferring to passing in a named function which will be declared later in the file below the binded functions. This helps us keep our binded members at the top of the controller. Also we will use function declarations rather than expressions. A function declaration's scope is hoisted meaning you can use a function before it is declared in the order of code. Also function declarations will show a very visible syntactical difference from the binded members above.
+
 ####Defer Controller Logic to Services
 Any data should be placed in Service to avoid repetition. Controller's should not manipulate data only fetch & assign to a binded member.
+
 ####No DOM Manipulation
 Controllers shouldn't be 100% DOM independent. All DOM Manipulation should happen in a directive.
+
 ####Controller Activation Promises
 Resolve start-up logic for a controller in an activate function. Placing start-up logic in a consistent place in the controller makes it easier to locate, more consistent to test, and helps avoid spreading out the activation logic across the controller. Will be used particulary when fetching data from a service which will almost always be the case.
+
 ####Sample Controller
 ```
 (function() { 'use strict'; // wrap in IIFE & 'use strict' clause'
