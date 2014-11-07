@@ -5,9 +5,9 @@ A lot of the coding conventions you see here are borrowed from [John Papa's Angu
 
 ##Table of Contents
 
-1. [Single Responsiblity](#1)
-1. [IIFE & 'use strict'](#2)
-1. [Prefix Angular components with the app name](#3)
+1. [Single Responsiblity](#single-responsiblity)
+1. [IIFE & 'use strict'](#iife--use-strict)
+1. [Prefix Angular components with the app name](#prefix-angular-components-with-the-app-name)
 
 ###Single Responsiblity
 Each file should only contain one angular component (controller, directive, service, etc.). We want our files to be very easy to search out and identify.
