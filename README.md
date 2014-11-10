@@ -67,7 +67,7 @@ A sample controller code example will be shown at the bottom
 The $scope variable is angular's viewModel (bridge between view & model). This is the data that is binded two ways between the view & controller and what makes Angular awesome. Our practice will be to bind all data on the $scope variable. There are other practices that mask this connection we will not do this. $scope will be passed in as a dependency to your controller and all data will be binded upon that object. However all $scope properties should contain a parent object the sake of readability. For example, rather than creating a $scope property of simply "name", create an customer object with a property of name and attach that to $scope. See code example below for reference.
 
 ```
-<h1>Hello {{ name }}</h1>
+<h1>Hello {{ name }}</h1> <!-- confusing, who's name is this? -->
 
 <script>
 // Don't do this
