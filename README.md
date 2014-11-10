@@ -64,8 +64,31 @@ angular.module('lnx.sampleController', []) // notice the prefix lnx which is the
 A sample controller code example will be shown at the bottom
 
 ####$scope
-The $scope variable is angular's viewModel (bridge between view & model). This is the data that is binded two ways between the view & controller and what makes Angular awesome. Our practice will be to bind all data on the $scope variable. There are other practices that mask this connection. $scope will be passed in as a dependency to your controller and all data will be binded as a property to that object.
+The $scope variable is angular's viewModel (bridge between view & model). This is the data that is binded two ways between the view & controller and what makes Angular awesome. Our practice will be to bind all data on the $scope variable. There are other practices that mask this connection we will not do this. $scope will be passed in as a dependency to your controller and all data will be binded upon that object. However all $scope properties should contain a parent object the sake of readability. For example, rather than creating a $scope property of simply "name", create an customer object with a property of name and attach that to $scope. See code example below for reference.
 
+```
+<h1>Hello {{ name }}</h1>
+
+<script>
+// Don't do this
+angular.controller('sample', function($scope) {
+    $scope.name = 'John';
+});
+</script>
+```
+
+```
+<h1>Hello {{ customer.name }}</h1> <!-- see this is more semantic -->
+
+<script>
+// Do this
+angular.controller('sample', function($scope) {
+    $scope.customer = {
+        'name': 'John'
+    };
+});
+</script>
+```
 ####Bindable Members Up Top
 Place all binded data at the top of the controller to make it easier and quicker to identify. This is all the assignements to the $scope object.
 
