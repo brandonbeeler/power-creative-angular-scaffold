@@ -1,4 +1,5 @@
 #Power Creative Angular Coding Conventions & Scaffolding
+At some point we should turn this into a Yo Generator. I just didn't have the time to do it right now. 
 
 ##Coding Conventions & Style Guide
 A lot of the coding conventions you see here are borrowed from [John Papa's Angular Style Guide](https://github.com/johnpapa/angularjs-styleguide). It's great stuff if you have the time to read. Basically I have used that as a base for this and modified / simplified form here.
