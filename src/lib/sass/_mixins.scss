@@ -1,0 +1,32 @@
+$green: #008100;
+$grey: #ddd;
+$dark-grey: #c2c2c2;
+$black: #414042;
+$trans-dur: .3s;
+
+@mixin font-style($size: '', $color: '', $weight: '', $style: '', $decoration: '', $family: '') {
+  @if ($size != '') {
+  	font-size: #{$size}px;
+  }
+
+  @if ($family != '') {
+    font-family: $family, sans-serif;
+    font-weight: 600;
+  }
+
+  @if ($color != '') {
+    color: $color;
+  }
+
+  @if ($weight != '') {
+    font-weight: $weight;
+  }
+
+  @if ($style != '') {
+    font-style: $style;
+  }
+
+  @if ($decoration != '') {
+    text-decoration: $decoration;
+  }
+}

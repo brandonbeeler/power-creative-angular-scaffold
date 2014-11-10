@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Angular Project</title>
+
+    <base href="/" />
+    <link rel="stylesheet" href="lib/css/animate.css">
+    <link rel="stylesheet" href="lib/css/styles.css"/>
+</head>
+<body ng-controller='app'>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/sample">Sample</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <section class="container page-wrapper {{ pageClass() }}" ng-view></section>
+
+    <!-- SCRIPTS -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.js'></script>
+    <script src='lib/js/vendor/vendor.js'></script>
+    <script src='lib/js/build.js'></script>
+    <!-- <script src='dist/lib/js/build.min.js'></script> -->
+</body>
+</html>
